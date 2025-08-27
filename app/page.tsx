@@ -1,6 +1,11 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
+import Modal from "@/components/Modal";
+import { IMPRESSUM, TERMS_OF_SERVICE, PRIVACY_POLICY } from "@/content/legal";
 
 export default function Home() {
+  const [open, setOpen] = useState<null | "impressum" | "terms" | "privacy">(null);
   return (
     <main className="min-h-screen text-white">
       {/* ===== HERO ===== */}
@@ -18,13 +23,9 @@ export default function Home() {
             {/* If you later add a real SVG/PNG logo, drop it in /public and swap here */}
             <span className="text-lg font-semibold tracking-wide">BetHabits</span>
           </div>
-          <a
-            href="#cta"
-            className="rounded-xl px-4 py-2 font-medium"
-            style={{ background: "#ff6a00" }}
-          >
-            Get the app
-          </a>
+          <span className="rounded-full px-4 py-2 text-sm font-semibold bg-white/10 border border-white/20">
+            Launching soon
+          </span>
         </div>
 
         <div className="max-w-6xl mx-auto px-6 pb-12 md:pb-20 grid md:grid-cols-2 gap-10 items-center">
@@ -42,14 +43,10 @@ export default function Home() {
               <li>✅ Beat procrastination</li>
             </ul>
 
-            <div id="cta" className="mt-8 flex gap-4">
-              <a
-                href="#download"
-                className="rounded-xl px-5 py-3 font-semibold"
-                style={{ background: "#ff6a00" }}
-              >
-                Start Winning
-              </a>
+            <div id="cta" className="mt-8 flex flex-wrap items-center gap-4">
+              <span className="rounded-full px-4 py-2 text-sm font-semibold bg-white/10 border border-white/20">
+                Launching soon
+              </span>
               <a
                 href="#how"
                 className="rounded-xl px-5 py-3 font-semibold border border-white/30"
@@ -122,11 +119,23 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <span>© {new Date().getFullYear()} BetHabits</span>
           <div className="flex gap-6">
-            <a href="/terms" className="underline">Terms</a>
-            <a href="/privacy" className="underline">Privacy</a>
+            <button onClick={() => setOpen("impressum")} className="underline">Impressum</button>
+            <button onClick={() => setOpen("terms")} className="underline">Terms</button>
+            <button onClick={() => setOpen("privacy")} className="underline">Privacy</button>
           </div>
         </div>
       </footer>
+
+      {/* Legal Modals */}
+      <Modal open={open === "impressum"} onClose={() => setOpen(null)} title="Impressum">
+        <pre className="whitespace-pre-wrap font-sans">{IMPRESSUM}</pre>
+      </Modal>
+      <Modal open={open === "terms"} onClose={() => setOpen(null)} title="Terms of Service">
+        <pre className="whitespace-pre-wrap font-sans">{TERMS_OF_SERVICE}</pre>
+      </Modal>
+      <Modal open={open === "privacy"} onClose={() => setOpen(null)} title="Privacy Policy">
+        <pre className="whitespace-pre-wrap font-sans">{PRIVACY_POLICY}</pre>
+      </Modal>
     </main>
   );
 }
