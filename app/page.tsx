@@ -83,7 +83,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
           <h2 className="text-3xl md:text-4xl font-bold">How it works</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-6">
-            <Card title="Set a weekly goal" text="Set by Monday noon. Make it measurable." />
+            <Card title="Set a goal" text="Deadline within 2 weeks. Make it measurable." />
             <Card title="Bet an amount" text="Put real money on the line." />
             <Card title="Submit Proof" text="Upload before the deadline. We or a friend verify." />
           </div>
@@ -102,7 +102,7 @@ export default function Home() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-          <h2 className="text-3xl md:text-4xl font-bold">In-app flow</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Change your habits in 6 simple steps</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             <Image className="rounded-xl shadow-lg" src="/1-dashboard.jpg" alt="Dashboard" width={800} height={1600}/>
             <Image className="rounded-xl shadow-lg" src="/2-setgoalsuccess.jpg" alt="Set goal success" width={800} height={1600}/>
