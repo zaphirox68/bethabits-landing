@@ -2,10 +2,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import Modal from "@/components/Modal";
-import { IMPRESSUM, TERMS_OF_SERVICE, PRIVACY_POLICY } from "@/content/legal";
+import { IMPRESSUM } from "@/content/legal";
 
 export default function Home() {
-  const [open, setOpen] = useState<null | "impressum" | "terms" | "privacy">(null);
+  const [open, setOpen] = useState<null | "impressum">(null);
   return (
     <main className="min-h-screen text-white">
       {/* ===== HERO ===== */}
@@ -120,8 +120,8 @@ export default function Home() {
           <span>© {new Date().getFullYear()} BetHabits</span>
           <div className="flex gap-6">
             <button onClick={() => setOpen("impressum")} className="underline">Impressum</button>
-            <button onClick={() => setOpen("terms")} className="underline">Terms</button>
-            <button onClick={() => setOpen("privacy")} className="underline">Privacy</button>
+            <a href="/service" className="underline hover:no-underline">Terms</a>
+            <a href="/privacy" className="underline hover:no-underline">Privacy</a>
           </div>
         </div>
       </footer>
@@ -129,12 +129,6 @@ export default function Home() {
       {/* Legal Modals */}
       <Modal open={open === "impressum"} onClose={() => setOpen(null)} title="Impressum">
         <pre className="whitespace-pre-wrap font-sans">{IMPRESSUM}</pre>
-      </Modal>
-      <Modal open={open === "terms"} onClose={() => setOpen(null)} title="Terms of Service">
-        <pre className="whitespace-pre-wrap font-sans">{TERMS_OF_SERVICE}</pre>
-      </Modal>
-      <Modal open={open === "privacy"} onClose={() => setOpen(null)} title="Privacy Policy">
-        <pre className="whitespace-pre-wrap font-sans">{PRIVACY_POLICY}</pre>
       </Modal>
     </main>
   );
