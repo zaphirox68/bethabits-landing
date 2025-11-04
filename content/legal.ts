@@ -183,5 +183,11 @@ When AI verification is selected, the model returns a pass/fail result that may 
 11. Changes  
 Material changes are announced in-app at least 14 days before they take effect. Continued use after that date constitutes acceptance of the amended policy.
 
+12. Account deletion  
+You can delete your Bet Habits account directly in the app under Settings → Delete Account.  
+Account deletion is only available when you have no active goals (to ensure all open bets and payments are fully settled).  
+Once deletion is confirmed, all personal data — including goals, proof files, and connected Stripe data — is permanently removed from our servers (Firestore / Storage).  
+For assistance, contact bethabitsoffice@gmail.com.
+
 Contact: bethabitsoffice@gmail.com
 `;
